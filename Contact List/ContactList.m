@@ -27,4 +27,14 @@
     }
 }
 
+- (void)show:(int)index {
+    if (self.contacts.count > index) {
+        NSLog(@"\nName: %@\nEmail: %@", [self.contacts[index] name], [self.contacts[index] email]);
+    } else {
+        NSLog(@"\nNot a valid index");
+    }
+}
+
+
+
 @end

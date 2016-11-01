@@ -14,5 +14,6 @@
 
 - (instancetype)init;
 - (void)print;
+- (void)show:(int)index;
 
 @end

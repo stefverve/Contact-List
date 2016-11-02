@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
         NSString *input = @"0";
         ContactList *list = [ContactList new];
         while ([input isNotEqualTo:@"quit"]) {
-            input = [[[InputCollector alloc]init] getString:(NSString *)@"\nWhat would you like to do next?\n  new    - Create a new contact list\n  list   - List all contacts in list\n  show # - Show contact matching #\n  Find x - Find all contacts with names containing x\n  quit   - Quit"];
+            input = [[[InputCollector alloc]init] getString:(NSString *)@"\nWhat would you like to do next?\n  new    - Create a new contact list\n  list   - List all contacts in list\n  show # - Show contact matching #\n  find x - Find all contacts with names containing x\n  quit   - Quit"];
             if ([input isEqualToString:@"new"]) {
                 Contact *newContact = [[Contact alloc] init];
                 BOOL uniqueEmail = YES;

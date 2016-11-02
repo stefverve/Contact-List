@@ -19,9 +19,18 @@ int main(int argc, const char * argv[]) {
             input = [[[InputCollector alloc]init] getString:(NSString *)@"\nWhat would you like to do next?\n  new    - Create a new contact list\n  list   - List all contacts in list\n  show # - Show contact matching #\n  Find x - Find all contacts with names containing x\n  quit   - Quit"];
             if ([input isEqualToString:@"new"]) {
                 Contact *newContact = [[Contact alloc] init];
+                BOOL uniqueEmail = YES;
                 newContact.name = [[[InputCollector alloc] init] getString:(NSString *)@"\nName of contact:"];
                 newContact.email = [[[InputCollector alloc] init] getString:(NSString *)@"\nEmail of contact:"];
-                [list.contacts addObject:newContact];
+                for (Contact *item in list.contacts) {
+                    if ([item.email isEqual:newContact.email]) {
+                        uniqueEmail = NO;
+                        NSLog(@"\nEmail is not unique, contact was not saved.");
+                    }
+                }
+                if (uniqueEmail) {
+                        [list.contacts addObject:newContact];
+                }
             } else if ([input isEqualToString:@"list"]) {
                 [list print];
             } else if ([input isEqualToString:@"quit"]) {

@@ -35,6 +35,14 @@
     }
 }
 
-
+- (void)find:(NSString *)searchString {
+    int i = 0;
+    for (Contact *item in self.contacts) {
+        if ([item.name containsString:searchString] || [item.email containsString:searchString]){
+            [self show:i];
+        }
+        i++;
+    }
+}
 
 @end

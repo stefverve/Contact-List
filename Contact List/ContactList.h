@@ -15,5 +15,6 @@
 - (instancetype)init;
 - (void)print;
 - (void)show:(int)index;
+- (void)find:(NSString *)searchString;
 
 @end
